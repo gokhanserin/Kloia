@@ -17,4 +17,13 @@ public class LacostePage {
     @FindBy(css = "a[title='Parfüm & Deodorant']")
     public WebElement perfumeDeodorant;
 
+    @FindBy(className = "attributeSearch")
+    public WebElement searchBrandBox;
+
+    @FindBy(css = "a[title='Lacoste']")
+    public WebElement brandCheckbox;
+
+    @FindBy(css = "div[data-position='7']")
+    public WebElement seventhProduct;
+
 }

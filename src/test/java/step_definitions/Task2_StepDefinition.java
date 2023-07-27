@@ -1,5 +1,6 @@
 package step_definitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.interactions.Actions;
@@ -7,40 +8,46 @@ import pages.LacostePage;
 import pages.LoginPage;
 import utilities.Driver;
 
+import java.util.Set;
+
 public class Task2_StepDefinition {
 
     LoginPage loginPage = new LoginPage();
     LacostePage lacostePage = new LacostePage();
+    Actions action = new Actions(Driver.getDriver());
 
     @When("user hover over Cosmetic & Personal Care tab")
     public void user_hover_over_cosmetic_personal_care_tab() {
-        Actions action = new Actions(Driver.getDriver());
-        action.moveToElement(lacostePage.cosmeticPersonalCare).perform();
+
+        action.moveToElement(lacostePage.cosmeticPersonalCare);
+
     }
     @When("user clicks on Perfume & Deodorant item")
     public void user_clicks_on_perfume_deodorant_item() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        action.moveToElement(lacostePage.perfumeDeodorant);
+        action.click().build().perform();
     }
     @When("user search for ‘Lacoste’ in Brand filter")
     public void user_search_for_lacoste_in_brand_filter() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        lacostePage.searchBrandBox.sendKeys("Lacoste");
     }
-    @When("user select {string}")
-    public void user_select(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+    @And("user select Lacoste")
+    public void userSelectLacoste() {
+        action.click(lacostePage.brandCheckbox).perform();
     }
     @When("user click 7th product on the search result page")
     public void user_click_7th_product_on_the_search_result_page() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        lacostePage.seventhProduct.click();
+
     }
     @When("user add product to the ‘Favorites’")
     public void user_add_product_to_the_favorites() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        Set<String> windowHandles = Driver.getDriver().getWindowHandles();
+        for (String windowHandle : windowHandles) {
+            Driver.getDriver().switchTo().window(windowHandle);
+        }
+
     }
     @When("user navigate to Favorites")
     public void user_navigate_to_favorites() {
@@ -52,5 +59,6 @@ public class Task2_StepDefinition {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }
+
 
 }

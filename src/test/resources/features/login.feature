@@ -18,7 +18,7 @@ Feature: User should be able to login and select a product
       When user hover over Cosmetic & Personal Care tab
       And user clicks on Perfume & Deodorant item
       And user search for ‘Lacoste’ in Brand filter
-      And user select 'Lacoste'
+      And user select Lacoste
       And user click 7th product on the search result page
       And user add product to the ‘Favorites’
       And user navigate to Favorites
