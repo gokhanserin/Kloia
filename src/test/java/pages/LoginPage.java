@@ -30,4 +30,5 @@ public class LoginPage {
     @FindBy(css = "a[title='Hesabım']")
     public WebElement accountButton;
 
+
 }
