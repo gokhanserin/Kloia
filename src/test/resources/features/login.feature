@@ -13,7 +13,7 @@ Feature: User should be able to login and select a product
     And user clicks on Facebook login button
     Then user should be able to login
 
-    @task2
+    @main
     Scenario: User should be able to select a product and add it to Favorites.
       When user hover over Cosmetic & Personal Care tab
       And user clicks on Perfume & Deodorant item
