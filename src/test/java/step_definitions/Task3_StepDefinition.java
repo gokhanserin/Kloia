@@ -8,9 +8,7 @@ import org.openqa.selenium.WebElement;
 import pages.FooterPage;
 import utilities.Driver;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,19 +30,27 @@ public class Task3_StepDefinition {
         }
         System.out.println("links = " + links);
 
-        BufferedWriter br = new BufferedWriter(new FileWriter("footerlinks.txt"));
+        BufferedWriter bw = new BufferedWriter(new FileWriter("footerlinks.txt"));
         for (String each : links) {
-            br.write(each + System.lineSeparator());
+            bw.write(each + System.lineSeparator());
         }
-        br.close();
+        bw.close();
     }
     @When("user clicks on Brands \\(Markalar) at the footer")
     public void user_clicks_on_brands_markalar_at_the_footer() {
         footerPage.brands.click();
     }
     @Then("verify the footer links with the text file")
-    public void verify_the_footer_links_with_the_text_file() {
-
+    public void verify_the_footer_links_with_the_text_file() throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader("footerlinks.txt"));
+        ArrayList<String> textList = new ArrayList<>();
+        String eachLine = br.readLine();
+        while (eachLine!=null){
+            textList.add(eachLine);
+            eachLine= br.readLine();
+        }
+        br.close();
+        System.out.println("textList = " + textList);
 
     }
 
