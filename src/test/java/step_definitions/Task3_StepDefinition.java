@@ -5,6 +5,7 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import pages.FooterPage;
 import utilities.Driver;
 
@@ -15,6 +16,7 @@ import java.util.List;
 public class Task3_StepDefinition {
 
     FooterPage footerPage = new FooterPage();
+
 
     @When("user write all the links at the footer to the text file")
     public void user_write_all_the_links_at_the_footer_to_the_text_file() throws IOException {
@@ -51,6 +53,18 @@ public class Task3_StepDefinition {
         }
         br.close();
         System.out.println("textList = " + textList);
+
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("scroll(0,1000)");
+
+        List<String> linksAfterBrands = new ArrayList<>();
+        List<WebElement> footerElementsAfterClickingBrands = footerPage.footer.findElements(By.tagName("a"));
+        for (WebElement eachElement : footerElementsAfterClickingBrands) {
+            String hrefAfterBrands = eachElement.getAttribute("href");
+            linksAfterBrands.add(hrefAfterBrands);
+        }
+        System.out.println("linksAfterBrands = " + linksAfterBrands);
+        Assert.assertEquals(linksAfterBrands,textList);
 
     }
 
