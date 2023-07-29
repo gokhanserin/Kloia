@@ -40,14 +40,12 @@ public class Task3_StepDefinition {
     }
     @When("user clicks on Brands \\(Markalar) at the footer")
     public void user_clicks_on_brands_markalar_at_the_footer() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        footerPage.brands.click();
     }
     @Then("verify the footer links with the text file")
     public void verify_the_footer_links_with_the_text_file() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
 
+
+    }
 
 }

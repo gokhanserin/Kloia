@@ -19,7 +19,7 @@ public class FooterPage {
     @FindBy(css = "a[title='Marka Koruma Merkezi']")
     public WebElement markaKoruma;
 
-    @FindBys({@FindBy(className = "fMenu")})
-    public WebElement footer2;
+    @FindBy(css = "a[title='Markalar']")
+    public WebElement brands;
 
 }
