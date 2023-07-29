@@ -11,7 +11,7 @@ public class SeventhProductPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(css = "a[data-skuid='127194819764']")
+    @FindBy(id = "addToFavouriteWishListBtn")
     public WebElement addToFavoriteButton;
 
     @FindBy(css = "h1[class='proName']")
@@ -19,4 +19,10 @@ public class SeventhProductPage {
 
     @FindBy(className = "iconFavoritesWhite")
     public WebElement favoritesButton;
+
+    @FindBy(id = "shareWinTooltipClose")
+    public WebElement shareWinClose;
+
+    @FindBy(css = "div[class='lightBox toaster  toaster-success wishListToaster']")
+    public WebElement lightBox;
 }
