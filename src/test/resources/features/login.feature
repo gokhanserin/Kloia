@@ -24,3 +24,9 @@ Feature: User should be able to login and select a product
       And user navigate to Favorites
       Then verify the product title is the same as with the product details page
 
+      @3
+      Scenario: Verifying footer links
+        When user write all the links at the footer to the text file
+        And user clicks on Brands (Markalar) at the footer
+        Then verify the footer links with the text file
+
